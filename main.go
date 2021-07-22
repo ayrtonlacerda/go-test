@@ -9,7 +9,8 @@ import (
 func main() {
 	fmt.Println("Start server")
 
-	http.HandleFunc("/", api.Handler)
+	http.HandleFunc("/test", api.Handler)
+	http.HandleFunc("/test2", api.Handler2)
 
 	http.ListenAndServe(":3000", nil)
 }
