@@ -1,4 +1,4 @@
-package handler
+package api
 
 import (
 	"net/http"
@@ -7,8 +7,10 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
+func h(c *fiber.Ctx) error {
+	return c.SendString("Hello, World 👋!")
+}
+
 func Handler(w http.ResponseWriter, r *http.Request) {
-	adaptor.FiberHandlerFunc(func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World 👋!")
-	})(w, r)
+	adaptor.FiberHandlerFunc(h)(w, r)
 }
